@@ -1,0 +1,169 @@
+:root {
+    --cor-primaria: #003087;
+    --cor-secundaria: #0F4C75;
+    --cor-fundo-formulario: #D9EDF7;
+    --cor-fundo-pagina: #F5F7F8;
+    --fonte-principal: Georgia, 'Times New Roman', Times, serif;
+    --tamanho-fonte-base: 16px;
+    --tamanho-fonte-media: 14px;
+    --tamanho-fonte-pequena: 12px;
+    --espacamento-padrao: 10px;
+    --espacamento-botao: 12px;
+    --aredondamento-borda: 5px;
+    --sombra-padrao: 0 4px 10px rgba(0, 0, 0, 0.1);
+    --sombra-foco: 0 0 5px rgba(0, 48, 135, 0.3);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--fonte-principal);
+}
+
+/* Padrão BEM para classes ==> block__element--modifier */
+
+body {
+    background-color: var(--cor-fundo-pagina);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.formulario__conteiner {
+    background-color: var(--cor-fundo-formulario);
+    padding: 30px;
+    border-radius: var(--aredondamento-borda);
+    box-shadow: var(--sombra-padrao);
+    max-width: 500px;
+    width: 100%;
+}
+
+.formulario__conteiner h1 {
+    text-align: center;
+    color: var(--cor-primaria);
+    margin-bottom: var(--espacamento-padrao);
+}
+
+.formulario__conteiner p {
+    text-align: center;
+    color: var(--cor-secundaria);
+    margin-bottom: 20px;
+}
+
+.formulario__grupo {
+    margin-bottom: 20px;
+}
+
+.formulario__grupo label {
+    display: block;
+    font-weight: bold;
+    color: var(--cor-primaria);
+    margin-bottom: 5px;
+}
+
+.formulario__grupo input,
+.formulario__grupo textarea {
+    width: 100%;
+    padding: var(--espacamento-padrao);
+    border: 1px solid var(--cor-secundaria);
+    border-radius: var(--aredondamento-borda);
+    font-size: var(--tamanho-fonte-base);
+}
+
+.formulario__grupo textarea {
+    resize: vertical;
+    min-height: 100px;
+    max-height: 200px;
+}
+
+.formulario__grupo input:focus,
+.formulario__grupo textarea:focus {
+    outline: none;
+    border-color: var(--cor-primaria);
+    box-shadow: var(--sombra-foco);
+}
+
+.formulario__botoes {
+    display: flex;
+    gap: 10px;
+}
+
+.formulario__botao--anexar,
+.formulario__botao--enviar {
+    flex: 1;
+    padding: var(--espacamento-botao);
+    background-color: var(--cor-primaria);
+    color: var(--cor-fundo-pagina);
+    border: none;
+    border-radius: var(--aredondamento-borda);
+    font-size: var(--tamanho-fonte-base);
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+}
+
+.formulario__botao--anexar:hover,
+.formulario__botao--enviar:hover {
+    background-color: var(--cor-secundaria);
+}
+
+@media (max-width: 768px) {
+    .formulario__conteiner {
+        padding: 25px;
+        max-width: 90%;
+    }
+    .formulario__conteiner h1 {
+        font-size: 24px;
+    }
+    .formulario__grupo input,
+    .formulario__grupo textarea {
+        font-size: var(--tamanho-fonte-media);
+    }
+    .formulario__botao--anexar,
+    .formulario__botao--enviar {
+        font-size: var(--tamanho-fonte-media);
+        padding: var(--espacamento-padrao);
+    }
+}
+
+@media (max-width: 480px) {
+    .formulario__conteiner {
+        padding: 20px;
+        max-width: 95%;
+    }
+    .formulario__conteiner h1 {
+        font-size: 20px;
+    }
+    .formulario__conteiner p {
+        font-size: var(--tamanho-fonte-media);
+    }
+    .formulario__grupo label {
+        font-size: var(--tamanho-fonte-media);
+    }
+    .formulario__grupo input,
+    .formulario__grupo textarea {
+        font-size: var(--tamanho-fonte-pequena);
+        padding: 8px;
+    }
+    .formulario__botao--anexar,
+    .formulario__botao--enviar {
+        font-size: var(--tamanho-fonte-pequena);
+        padding: 8px;
+    }
+    .formulario__grupo textarea {
+        min-height: 80px;
+    }
+    .formulario__botoes {
+        flex-direction: column;
+        gap: 8px;
+    }
+    .formulario__botao--anexar,
+    .formulario__botao--enviar {
+        width: 100%;
+    }
+}
